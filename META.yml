@@ -1,0 +1,13 @@
+---
+abstract: 'Stop CPAN from indexing stuff'
+author:
+  - 'JT Smith <RIZEN@cpan.org>'
+generated_by: 'Dist::Zilla version 1.093400'
+license: perl
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Dist-Zilla-Plugin-MetaNoIndex
+requires:
+  Dist::Zilla: 1.093400
+version: 0.0100
