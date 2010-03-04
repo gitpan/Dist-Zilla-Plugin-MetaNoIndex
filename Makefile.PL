@@ -11,7 +11,7 @@ WriteMakefile(
   NAME      => 'Dist::Zilla::Plugin::MetaNoIndex',
   AUTHOR    => "JT\ Smith\ \<RIZEN\@cpan\.org\>",
   ABSTRACT  => "Stop\ CPAN\ from\ indexing\ stuff",
-  VERSION   => '0.0100',
+  VERSION   => '0.0200',
   EXE_FILES => [ qw() ],
   (eval { ExtUtils::MakeMaker->VERSION(6.31) } ? (LICENSE => 'perl') : ()),
   PREREQ_PM    => {

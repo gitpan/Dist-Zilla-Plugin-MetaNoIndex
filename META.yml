@@ -10,4 +10,4 @@ meta-spec:
 name: Dist-Zilla-Plugin-MetaNoIndex
 requires:
   Dist::Zilla: 1.093400
-version: 0.0100
+version: 0.0200
