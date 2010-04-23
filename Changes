@@ -1,9 +1,16 @@
+Revision history for Dist-Zilla-Plugin-MetaNoIndex
+
+1.101130  2010-04-23 18:17:07 America/New_York
+    Refactored with mjgardner's independently-developed unreleased version.
+    mjgardner taking over maintenance.
+    Added tests.
+
 0.0300 2010-03-03
-- With Ricardo's guidance, added aliasing for config file directives.
+    With Ricardo's guidance, added aliasing for config file directives.
 
 0.0200 2010-03-03
-- Added support for 'package', 'file', and 'namespace'.
-- Changed 'folder' to 'directory', but kept 'folder' as a deprecated alias for backward compatibility.
+    Added support for 'package', 'file', and 'namespace'.
+    Changed 'folder' to 'directory', but kept 'folder' as a deprecated alias for backward compatibility.
 
 0.0100 2010-03-03
-- Initial public release.
+    Initial public release.

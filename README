@@ -1,12 +1,61 @@
+NAME
+    Dist::Zilla::Plugin::MetaNoIndex - Stop CPAN from indexing stuff
 
+VERSION
+    version 1.101130
 
-This archive contains the distribution Dist-Zilla-Plugin-MetaNoIndex, version
-0.0300:
+SYNOPSIS
+    In your dist.ini:
 
-  Stop CPAN from indexing stuff
+      [MetaNoIndex]
+      directory = t/author
+      directory = examples
+      file = lib/Foo.pm
+      package = My::Module
+      namespace = My::Module
 
-This software is copyright (c) 2010 by Plain Black Corporation.
+DESCRIPTION
+    This plugin allows you to prevent PAUSE/CPAN from indexing files you
+    don't want indexed. This is useful if you build test classes or example
+    classes that are used for those purposes only, and are not part of the
+    distribution. It does this by adding a "no_index" block to your META.yml
+    file in your distribution.
 
-This is free software; you can redistribute it and/or modify it under
-the same terms as the Perl 5 programming language system itself.
+ATTRIBUTES
+  directory
+    Exclude folders and everything in them. Example: "author.t". Aliases:
+    "folder", "dir", "directories".
+
+  file
+    Exclude a specific file. Example: "lib/Foo.pm". Alias: "files".
+
+  package
+    Exclude by package name. Example: "My::Package". Aliases: "class",
+    "module", "packages".
+
+  namespace
+    Exclude everything under a specific namespace. Example: "My::Package".
+    Alias: "namespaces".
+
+    NOTE: This will not exclude the package "My::Package", only everything
+    under it like "My::Package::Foo".
+
+METHODS
+  metadata
+    Returns a reference to a hash containing the distribution's no_index
+    metadata.
+
+SEE ALSO
+    Dist::Zilla
+    META-spec <http://module-build.sourceforge.net/META-spec-current.html>
+
+AUTHORS
+      Mark Gardner <MJGARDNER@cpan.org>
+      JT Smith <RIZEN@cpan.org>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2010 by Mark Gardner.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
 

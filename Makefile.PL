@@ -2,9 +2,9 @@
 use strict;
 use warnings;
 
+ BEGIN { require 5.010; } 
 
-
-use ExtUtils::MakeMaker 6.11;
+use ExtUtils::MakeMaker 6.31;
 
 
 
@@ -15,23 +15,41 @@ my %WriteMakefileArgs = (
                        'NAME' => 'Dist::Zilla::Plugin::MetaNoIndex',
                        'DISTNAME' => 'Dist-Zilla-Plugin-MetaNoIndex',
                        'CONFIGURE_REQUIRES' => {
-                                                 'ExtUtils::MakeMaker' => '6.11'
+                                                 'ExtUtils::MakeMaker' => '6.31'
                                                },
-                       'AUTHOR' => 'JT Smith <RIZEN@cpan.org>',
-                       'BUILD_REQUIRES' => {},
+                       'AUTHOR' => 'Mark Gardner <MJGARDNER@cpan.org>, JT Smith <RIZEN@cpan.org>',
+                       'BUILD_REQUIRES' => {
+                                             'Dist::Zilla::Tester' => '0',
+                                             'Data::PowerSet' => '0',
+                                             'Modern::Perl' => '0',
+                                             'Test::More' => '0',
+                                             'File::Find' => '0',
+                                             'Test::Moose' => '0',
+                                             'Test::Most' => '0',
+                                             'File::Temp' => '0',
+                                             'Path::Class' => '0',
+                                             'Cwd' => '0',
+                                             'Text::Template' => '0'
+                                           },
                        'ABSTRACT' => 'Stop CPAN from indexing stuff',
                        'EXE_FILES' => [],
-                       'VERSION' => '0.0300',
+                       'VERSION' => '1.101130',
                        'PREREQ_PM' => {
-                                        'Config::MVP' => '0.100780',
-                                        'Dist::Zilla' => '1.093400'
+                                        'English' => '0',
+                                        'Dist::Zilla::Role::MetaProvider' => '0',
+                                        'Readonly' => '0',
+                                        'Moose' => '0',
+                                        'utf8' => '0'
                                       },
                        'LICENSE' => 'perl'
                      );
 
 
-delete $WriteMakefileArgs{LICENSE}
-  unless eval { ExtUtils::MakeMaker->VERSION(6.31) };
+delete $WriteMakefileArgs{BUILD_REQUIRES}
+  unless eval { ExtUtils::MakeMaker->VERSION(6.56) };
+
+delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
+  unless eval { ExtUtils::MakeMaker->VERSION(6.52) };
 
 WriteMakefile(%WriteMakefileArgs);
 
