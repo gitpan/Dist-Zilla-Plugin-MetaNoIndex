@@ -33,7 +33,7 @@ my %WriteMakefileArgs = (
                                            },
                        'ABSTRACT' => 'Stop CPAN from indexing stuff',
                        'EXE_FILES' => [],
-                       'VERSION' => '1.101130',
+                       'VERSION' => '1.101200',
                        'PREREQ_PM' => {
                                         'English' => '0',
                                         'Dist::Zilla::Role::MetaProvider' => '0',
@@ -45,8 +45,18 @@ my %WriteMakefileArgs = (
                      );
 
 
-delete $WriteMakefileArgs{BUILD_REQUIRES}
-  unless eval { ExtUtils::MakeMaker->VERSION(6.56) };
+unless ( eval { ExtUtils::MakeMaker->VERSION(6.56) } ) {
+  my $br = delete $WriteMakefileArgs{BUILD_REQUIRES};
+  my $pp = $WriteMakefileArgs{PREREQ_PM}; 
+  for my $mod ( keys %$br ) {
+    if ( exists $pp->{$mod} ) {
+      $pp->{$mod} = $br->{$mod} if $br->{$mod} > $pp->{$mod}; 
+    }
+    else {
+      $pp->{$mod} = $br->{$mod};
+    }
+  }
+}
 
 delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
   unless eval { ExtUtils::MakeMaker->VERSION(6.52) };

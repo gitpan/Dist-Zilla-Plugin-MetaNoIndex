@@ -6,7 +6,7 @@ use utf8;
 package Dist::Zilla::Plugin::MetaNoIndex;
 
 BEGIN {
-    $Dist::Zilla::Plugin::MetaNoIndex::VERSION = '1.101130';
+    $Dist::Zilla::Plugin::MetaNoIndex::VERSION = '1.101200';
 }
 
 # ABSTRACT: Stop CPAN from indexing stuff
@@ -65,7 +65,7 @@ Dist::Zilla::Plugin::MetaNoIndex - Stop CPAN from indexing stuff
 
 =head1 VERSION
 
-version 1.101130
+version 1.101200
 
 =head1 SYNOPSIS
 
