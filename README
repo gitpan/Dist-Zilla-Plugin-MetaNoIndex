@@ -2,7 +2,7 @@ NAME
     Dist::Zilla::Plugin::MetaNoIndex - Stop CPAN from indexing stuff
 
 VERSION
-    version 1.101200
+    version 1.101550
 
 SYNOPSIS
     In your dist.ini:

@@ -6,7 +6,7 @@ use utf8;
 package Dist::Zilla::Plugin::MetaNoIndex;
 
 BEGIN {
-    $Dist::Zilla::Plugin::MetaNoIndex::VERSION = '1.101200';
+    $Dist::Zilla::Plugin::MetaNoIndex::VERSION = '1.101550';
 }
 
 # ABSTRACT: Stop CPAN from indexing stuff
@@ -14,7 +14,7 @@ BEGIN {
 use English '-no_match_vars';
 use Moose;
 use Readonly;
-with 'Dist::Zilla::Role::MetaProvider';
+with 'Dist::Zilla::Role::MetaProvider' => { -version => 4.101550 };
 
 Readonly my %ATTR_ALIAS => (
     directory => [qw(dir directories folder)],
@@ -65,7 +65,7 @@ Dist::Zilla::Plugin::MetaNoIndex - Stop CPAN from indexing stuff
 
 =head1 VERSION
 
-version 1.101200
+version 1.101550
 
 =head1 SYNOPSIS
 
